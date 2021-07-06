@@ -11,7 +11,7 @@ public class AgedBrieTest {
         //Given
         Item brie = new Item("Aged Brie", 2, 0);
         GildedRose inn = new GildedRose(new Item[] { brie });
-        assertEquals(brie.quality, 0);
+        assertEquals(0,brie.quality);
 
         //When
         inn.updateQuality();
