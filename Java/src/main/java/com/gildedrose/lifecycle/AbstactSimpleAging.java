@@ -12,7 +12,6 @@ public class AbstactSimpleAging implements AgingProcess {
 
     @Override
     public void updateQuality(Item item) {
-        item.sellIn--;
         item.quality-=qualityDegredation;
         if(item.sellIn<0){
             item.quality-=qualityDegredation;

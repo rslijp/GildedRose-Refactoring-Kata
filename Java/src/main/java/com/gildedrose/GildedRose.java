@@ -1,8 +1,9 @@
 package com.gildedrose;
 
 import com.gildedrose.lifecycle.AgedBrieLifeCycle;
-import com.gildedrose.lifecycle.DexterityVestLifeCycle;
+import com.gildedrose.lifecycle.DefaultAging;
 import com.gildedrose.lifecycle.AgingProcess;
+import com.gildedrose.lifecycle.LegendaryItemAging;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,9 +13,11 @@ class GildedRose {
 
     static {
         AGING.put("Aged Brie", new AgedBrieLifeCycle());
+        AGING.put("Sulfuras, Hand of Ragnaros", new LegendaryItemAging());
         //Will be removed later
-        AGING.put("+5 Dexterity Vest", new DexterityVestLifeCycle());
-        AGING.put("Regular item", new DexterityVestLifeCycle());
+        AGING.put("+5 Dexterity Vest", new DefaultAging());
+        AGING.put("Elixir of the Mongoose", new DefaultAging());
+        AGING.put("Regular item", new DefaultAging());
     }
 
     Item[] items;
@@ -28,6 +31,7 @@ class GildedRose {
             Item item = items[i];
             AgingProcess aging = AGING.get(item.name);
             if(aging!=null){
+                item.sellIn--;
                 aging.updateQuality(item);
                 item.quality=Math.max(item.quality, 0);
                 continue;
