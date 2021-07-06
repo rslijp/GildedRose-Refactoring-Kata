@@ -57,7 +57,19 @@ public class RegularItemTest {
         //Then
         assertEquals(8, regular.quality);
         assertEquals(-1, regular.sellIn);
+    }
 
+    @Test
+    void regular_quality_is_never_negavtive() {
+        //Given
+        Item regular = new Item("Regular item", 1, 0);
+        GildedRose inn = new GildedRose(new Item[] { regular });
+        assertEquals( 0,regular.quality);
 
+        //When
+        inn.updateQuality();
+
+        //Then
+        assertEquals(0,regular.quality);
     }
 }

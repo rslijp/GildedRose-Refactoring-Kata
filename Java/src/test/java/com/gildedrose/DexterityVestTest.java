@@ -57,7 +57,19 @@ public class DexterityVestTest {
         //Then
         assertEquals(8, vest.quality);
         assertEquals(-1, vest.sellIn);
+    }
 
+    @Test
+    void dexterity_vest_quality_is_never_negative() {
+        //Given
+        Item vest = new Item("+5 Dexterity Vest", 10, 0);
+        GildedRose inn = new GildedRose(new Item[] { vest });
+        assertEquals( 0,vest.quality);
 
+        //When
+        inn.updateQuality();
+
+        //Then
+        assertEquals(0,vest.quality);
     }
 }

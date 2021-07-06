@@ -29,6 +29,7 @@ class GildedRose {
             AgingProcess aging = AGING.get(item.name);
             if(aging!=null){
                 aging.updateQuality(item);
+                item.quality=Math.max(item.quality, 0);
                 continue;
             }
             if (!items[i].name.equals("Aged Brie")
