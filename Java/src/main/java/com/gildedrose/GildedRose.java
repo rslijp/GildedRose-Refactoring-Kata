@@ -2,7 +2,8 @@ package com.gildedrose;
 
 import com.gildedrose.knownlifecycles.AgedBrieLifeCycle;
 import com.gildedrose.knownlifecycles.BackstagePassesAging;
-import com.gildedrose.knownlifecycles.DefaultAging;
+import com.gildedrose.knownlifecycles.ConjuredItemAging;
+import com.gildedrose.knownlifecycles.RegularItemAging;
 import com.gildedrose.knownlifecycles.LegendaryItemAging;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,10 +16,7 @@ class GildedRose {
         AGING.put("Aged Brie", new AgedBrieLifeCycle());
         AGING.put("Sulfuras, Hand of Ragnaros", new LegendaryItemAging());
         AGING.put("Backstage passes to a TAFKAL80ETC concert", new BackstagePassesAging());
-        //Will be removed later
-        AGING.put("+5 Dexterity Vest", new DefaultAging());
-        AGING.put("Elixir of the Mongoose", new DefaultAging());
-        AGING.put("Regular item", new DefaultAging());
+        AGING.put("Conjured Mana Cake", new ConjuredItemAging());
     }
 
     Item[] items;
@@ -31,15 +29,16 @@ class GildedRose {
         for (int i = 0; i < items.length; i++) {
             Item item = items[i];
             AgingProcess aging = AGING.get(item.name);
-            if(aging!=null){
-                item.sellIn--;
-                aging.updateQuality(item);
-                item.quality=Math.max(item.quality, 0);
-                if(aging.hasMaximumQuality()) {
-                    item.quality = Math.min(item.quality, 50);
-                }
-                continue;
+            if(aging==null) {
+                aging=new RegularItemAging();
             }
+            item.sellIn--;
+            aging.updateQuality(item);
+            item.quality=Math.max(item.quality, 0);
+            if(aging.hasMaximumQuality()) {
+                item.quality = Math.min(item.quality, 50);
+            }
+
         }
     }
 }
