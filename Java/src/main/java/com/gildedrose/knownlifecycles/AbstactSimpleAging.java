@@ -3,7 +3,7 @@ package com.gildedrose.knownlifecycles;
 import com.gildedrose.AgingProcess;
 import com.gildedrose.Item;
 
-public class AbstactSimpleAging implements AgingProcess {
+public abstract class AbstactSimpleAging implements AgingProcess {
 
     private final int qualityDegredation;
 
