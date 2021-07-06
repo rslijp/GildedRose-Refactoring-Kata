@@ -9,4 +9,9 @@ public class LegendaryItemAging implements AgingProcess {
     public void updateQuality(Item item) {
         //Always keep shining as bright as the day it was made
     }
+
+    @Override
+    public boolean hasMaximumQuality() {
+        return false;
+    }
 }

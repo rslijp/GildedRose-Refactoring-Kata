@@ -18,4 +18,9 @@ public class AbstactSimpleAging implements AgingProcess {
             item.quality-=qualityDegredation;
         }
     }
+
+    @Override
+    public boolean hasMaximumQuality() {
+        return true;
+    }
 }

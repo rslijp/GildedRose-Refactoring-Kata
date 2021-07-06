@@ -1,6 +1,7 @@
 package com.gildedrose;
 
 import com.gildedrose.knownlifecycles.AgedBrieLifeCycle;
+import com.gildedrose.knownlifecycles.BackstagePassesAging;
 import com.gildedrose.knownlifecycles.DefaultAging;
 import com.gildedrose.knownlifecycles.LegendaryItemAging;
 import java.util.HashMap;
@@ -13,6 +14,7 @@ class GildedRose {
     static {
         AGING.put("Aged Brie", new AgedBrieLifeCycle());
         AGING.put("Sulfuras, Hand of Ragnaros", new LegendaryItemAging());
+        AGING.put("Backstage passes to a TAFKAL80ETC concert", new BackstagePassesAging());
         //Will be removed later
         AGING.put("+5 Dexterity Vest", new DefaultAging());
         AGING.put("Elixir of the Mongoose", new DefaultAging());
@@ -33,7 +35,9 @@ class GildedRose {
                 item.sellIn--;
                 aging.updateQuality(item);
                 item.quality=Math.max(item.quality, 0);
-                item.quality=Math.min(item.quality, 50);
+                if(aging.hasMaximumQuality()) {
+                    item.quality = Math.min(item.quality, 50);
+                }
                 continue;
             }
             if (!items[i].name.equals("Aged Brie")
