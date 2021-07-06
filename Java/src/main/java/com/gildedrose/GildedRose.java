@@ -1,9 +1,8 @@
 package com.gildedrose;
 
-import com.gildedrose.lifecycle.AgedBrieLifeCycle;
-import com.gildedrose.lifecycle.DefaultAging;
-import com.gildedrose.lifecycle.AgingProcess;
-import com.gildedrose.lifecycle.LegendaryItemAging;
+import com.gildedrose.knownlifecycles.AgedBrieLifeCycle;
+import com.gildedrose.knownlifecycles.DefaultAging;
+import com.gildedrose.knownlifecycles.LegendaryItemAging;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,6 +33,7 @@ class GildedRose {
                 item.sellIn--;
                 aging.updateQuality(item);
                 item.quality=Math.max(item.quality, 0);
+                item.quality=Math.min(item.quality, 50);
                 continue;
             }
             if (!items[i].name.equals("Aged Brie")

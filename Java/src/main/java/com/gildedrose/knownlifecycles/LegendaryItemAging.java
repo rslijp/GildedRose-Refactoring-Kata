@@ -1,8 +1,9 @@
-package com.gildedrose.lifecycle;
+package com.gildedrose.knownlifecycles;
 
+import com.gildedrose.AgingProcess;
 import com.gildedrose.Item;
 
-public class LegendaryItemAging implements AgingProcess{
+public class LegendaryItemAging implements AgingProcess {
 
     @Override
     public void updateQuality(Item item) {

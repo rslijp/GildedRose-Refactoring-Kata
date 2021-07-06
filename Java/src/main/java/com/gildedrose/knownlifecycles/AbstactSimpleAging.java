@@ -1,5 +1,6 @@
-package com.gildedrose.lifecycle;
+package com.gildedrose.knownlifecycles;
 
+import com.gildedrose.AgingProcess;
 import com.gildedrose.Item;
 
 public class AbstactSimpleAging implements AgingProcess {

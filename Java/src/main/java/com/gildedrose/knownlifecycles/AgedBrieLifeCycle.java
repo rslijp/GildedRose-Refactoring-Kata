@@ -1,4 +1,4 @@
-package com.gildedrose.lifecycle;
+package com.gildedrose.knownlifecycles;
 
 public class AgedBrieLifeCycle extends AbstactSimpleAging {
 

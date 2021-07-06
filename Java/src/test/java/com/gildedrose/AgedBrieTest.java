@@ -58,4 +58,19 @@ public class AgedBrieTest {
         assertEquals(4, brie.quality);
         assertEquals(-1, brie.sellIn);
     }
+
+    @Test
+    void aged_brie_cant_have_a_quality_above_50() {
+        //Given
+        Item brie = new Item("Aged Brie", 2, 60);
+        GildedRose inn = new GildedRose(new Item[] { brie });
+        assertEquals(60,brie.quality);
+
+        //When
+        inn.updateQuality();
+
+        //Then
+        assertEquals(50,brie.quality);
+    }
+
 }
