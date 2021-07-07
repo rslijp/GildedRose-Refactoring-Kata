@@ -1,6 +1,6 @@
 package com.gildedrose.knownlifecycles;
 
-public class RegularItemAging extends AbstactSimpleAging {
+public class RegularItemAging extends AbstractSimpleAging {
 
     public RegularItemAging() {
         super(1);

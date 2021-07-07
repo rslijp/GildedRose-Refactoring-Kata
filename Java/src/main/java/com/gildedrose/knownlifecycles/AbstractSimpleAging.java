@@ -3,11 +3,11 @@ package com.gildedrose.knownlifecycles;
 import com.gildedrose.AgingProcess;
 import com.gildedrose.Item;
 
-public abstract class AbstactSimpleAging implements AgingProcess {
+public abstract class AbstractSimpleAging implements AgingProcess {
 
     private final int qualityDegredation;
 
-    AbstactSimpleAging(int qualityDegredation) {
+    AbstractSimpleAging(int qualityDegredation) {
         this.qualityDegredation = qualityDegredation;
     }
 
